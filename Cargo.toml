@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "vsc"
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Alessio Marcuzzi <alemarcuzzi03@gmail.com>"]
+edition = "2024"
