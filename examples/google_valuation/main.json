@@ -1,0 +1,294 @@
+{
+  "simulation_config": {
+    "num_trials": 1,
+    "output_file": "/Users/alessiomarcuzzi/Desktop/valuascript/examples/google_valuation/results.csv"
+  },
+  "variable_registry": [
+    "__get_wacc_2__beta",
+    "__get_wacc_2__bond_spread",
+    "__get_wacc_2__book_value_of_debt",
+    "__get_wacc_2__debt_percentage",
+    "__get_wacc_2__equity_percentage",
+    "__get_wacc_2__equity_value",
+    "__get_wacc_2__erp",
+    "__get_wacc_2__k_debt",
+    "__get_wacc_2__k_equity",
+    "__get_wacc_2__risk_free_rate",
+    "__get_wacc_2__share_price",
+    "__get_wacc_2__shares_outstanding",
+    "__get_wacc_2__total_k",
+    "__get_wacc_2__wacc",
+    "__temp_7",
+    "wacc"
+  ],
+  "output_variable_index": 15,
+  "pre_trial_steps": [
+    {
+      "type": "literal_assignment",
+      "result": 0,
+      "line": 12,
+      "value": 1.05
+    },
+    {
+      "type": "literal_assignment",
+      "result": 1,
+      "line": 20,
+      "value": 0.0074
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        2
+      ],
+      "line": 10,
+      "function": "add",
+      "args": [
+        {
+          "type": "scalar_literal",
+          "value": 23607
+        },
+        {
+          "type": "scalar_literal",
+          "value": 11952
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        11
+      ],
+      "line": 6,
+      "function": "add",
+      "args": [
+        {
+          "type": "scalar_literal",
+          "value": 5817
+        },
+        {
+          "type": "scalar_literal",
+          "value": 847
+        },
+        {
+          "type": "scalar_literal",
+          "value": 5430
+        }
+      ]
+    },
+    {
+      "type": "literal_assignment",
+      "result": 10,
+      "line": 7,
+      "value": 192.62
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        5
+      ],
+      "line": 8,
+      "function": "multiply",
+      "args": [
+        {
+          "type": "variable_index",
+          "value": 10
+        },
+        {
+          "type": "variable_index",
+          "value": 11
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        12
+      ],
+      "line": 23,
+      "function": "add",
+      "args": [
+        {
+          "type": "variable_index",
+          "value": 5
+        },
+        {
+          "type": "variable_index",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        4
+      ],
+      "line": 24,
+      "function": "divide",
+      "args": [
+        {
+          "type": "variable_index",
+          "value": 5
+        },
+        {
+          "type": "variable_index",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        3
+      ],
+      "line": 25,
+      "function": "subtract",
+      "args": [
+        {
+          "type": "scalar_literal",
+          "value": 1
+        },
+        {
+          "type": "variable_index",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "literal_assignment",
+      "result": 6,
+      "line": 16,
+      "value": 0.0396
+    },
+    {
+      "type": "literal_assignment",
+      "result": 9,
+      "line": 14,
+      "value": 0.0436
+    },
+    {
+      "type": "literal_assignment",
+      "result": 14,
+      "line": 21,
+      "value": 0.21
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        7
+      ],
+      "line": 21,
+      "function": "multiply",
+      "args": [
+        {
+          "function": "add",
+          "args": [
+            {
+              "type": "variable_index",
+              "value": 9
+            },
+            {
+              "type": "variable_index",
+              "value": 1
+            }
+          ],
+          "type": "execution_assignment"
+        },
+        {
+          "function": "subtract",
+          "args": [
+            {
+              "type": "scalar_literal",
+              "value": 1
+            },
+            {
+              "type": "variable_index",
+              "value": 14
+            }
+          ],
+          "type": "execution_assignment"
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        8
+      ],
+      "line": 18,
+      "function": "add",
+      "args": [
+        {
+          "type": "variable_index",
+          "value": 9
+        },
+        {
+          "function": "multiply",
+          "args": [
+            {
+              "type": "variable_index",
+              "value": 0
+            },
+            {
+              "type": "variable_index",
+              "value": 6
+            }
+          ],
+          "type": "execution_assignment"
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        13
+      ],
+      "line": 27,
+      "function": "add",
+      "args": [
+        {
+          "function": "multiply",
+          "args": [
+            {
+              "type": "variable_index",
+              "value": 7
+            },
+            {
+              "type": "variable_index",
+              "value": 3
+            }
+          ],
+          "type": "execution_assignment"
+        },
+        {
+          "function": "multiply",
+          "args": [
+            {
+              "type": "variable_index",
+              "value": 8
+            },
+            {
+              "type": "variable_index",
+              "value": 4
+            }
+          ],
+          "type": "execution_assignment"
+        }
+      ]
+    },
+    {
+      "type": "execution_assignment",
+      "result": [
+        15
+      ],
+      "line": 13,
+      "function": "identity",
+      "args": [
+        {
+          "type": "variable_index",
+          "value": 13
+        }
+      ]
+    }
+  ],
+  "per_trial_steps": []
+}
