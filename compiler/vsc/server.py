@@ -26,6 +26,8 @@ from lsprotocol.types import (
     CompletionList,
     CompletionItemKind,
     InsertTextFormat,
+    PublishDiagnosticsParams,
+    TEXT_DOCUMENT_PUBLISH_DIAGNOSTICS,
 )
 from pygls.workspace import TextDocument
 
@@ -94,7 +96,13 @@ def _validate(ls, params):
     finally:
         sys.stdout.close()
         sys.stdout = original_stdout
-    ls.publish_diagnostics(params.text_document.uri, diagnostics)
+    ls.protocol.notify(
+        TEXT_DOCUMENT_PUBLISH_DIAGNOSTICS,
+        PublishDiagnosticsParams(
+            uri=params.text_document.uri,
+            diagnostics=diagnostics
+        )
+    )
 
 
 @server.feature("textDocument/didOpen")
