@@ -81,7 +81,7 @@ ValuaScript utilizes an Ahead-of-Time (AOT) compilation pipeline to ensure runti
 
 - **Go-to-Definition:** Seamlessly navigate to the source of any user-defined function.
 
-## Quick Start: Installation
+## Installation
 
 Get started in minutes with our automated installation scripts.
 
@@ -113,6 +113,67 @@ After installation, **you must open a new terminal window** for the changes to t
 
 The same scripts can be used to uninstall the tools. Simply replace `install.sh` with `uninstall.sh` (for Mac/Linux) or `install.ps1` with `uninstall.ps1` (for Windows) in the commands above.
 
+## Usage
+
+ValuaScript operates on a two-step architecture: compiling `.vs` scripts into JSON bytecode, and executing that bytecode on the C++ engine. You can handle this pipeline manually or use the compiler CLI to automate it.
+
+### 1. The Development Workflow (using `vsc`)
+
+The `vsc` (ValuaScript Compiler) CLI is the primary tool for developing models. It handles compilation, optimization, and can automatically invoke the engine and plotting tools.
+
+**Basic Compilation**
+To compile a script into bytecode without running it:
+
+```bash
+vsc model.vs -O
+```
+
+- **Input:** `model.vs`
+- **Output:** Generates `model_recipe.json`
+- **Note:** The `-O` flag enables the optimization pass (Function Inlining, Loop-Invariant Code Motion, Dead Code Elimination). This is highly recommended for production builds.
+
+**Compile and Run**
+To compile the model and immediately execute the simulation:
+
+```bash
+vsc model.vs -O --run
+```
+
+- This compiles the script to a temporary or local JSON file and passes it immediately to the `vse` engine.
+
+**Compile, Run, and Visualize**
+To compile, run, and automatically generate a histogram of the results:
+
+```bash
+vsc model.vs -O --run --plot
+```
+
+- This command executes the simulation and opens a Python-based plotting window showing the distribution of the output variable.
+
+---
+
+### 2. The Runtime Workflow (using `vse`)
+
+If you have already compiled your model into a JSON recipe, you can execute it directly using the underlying C++ engine (`vse`). This method is ideal for production pipelines, automated testing, or repeated runs where re-compilation is unnecessary.
+
+**Execute Bytecode**
+
+```bash
+vse model_recipe.json
+```
+
+---
+
+### 3. Command Line Reference
+
+#### Compiler (`vsc`)
+
+| Flag     | Description                                                                  |
+| :------- | :--------------------------------------------------------------------------- |
+| `-O`     | **Optimize:** Enables AST optimizations (Inlining, DCE, etc.).               |
+| `--run`  | **Execute:** Invokes the engine immediately after compilation.               |
+| `--plot` | **Visualize:** Generates charts for stochastic variables (requires `--run`). |
+
 ## 🚀 Performance Benchmarks
 
 Comparison running the project found at `examples/financial/google_dcf_valuation` for 100,000 iterations (MacBook Pro M4 Pro 24gb Ram macOS Sequoia 15.6.1):
@@ -125,12 +186,6 @@ Comparison running the project found at `examples/financial/google_dcf_valuation
 ## 🌟 Current Status: Beta Release
 
 ValuaScript is currently in a stable **Beta** release. Key features are implemented and tested across macOS, Windows, and Linux. The current version excels at DCF modeling and general Monte Carlo simulations.
-
-## Roadmap
-
-- [ ] **Empirical Distribution Sampling:** Add a function to create a custom sampler from a real-world data series (e.g., historical stock returns), allowing models to be driven by actual data instead of theoretical distributions.
-- [ ] **GPU Acceleration:** Explore CUDA/OpenCL to offload the "embarrassingly parallel" Monte Carlo workload to the GPU, providing an order-of-magnitude performance increase for simulations with millions of trials.
-
 
 ## License
 
